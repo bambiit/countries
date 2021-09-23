@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @EnableConfigurationProperties(WebClientProperties.class)
 @AllArgsConstructor
 public class WebClientConfig {
-    private WebClientProperties properties;
+    private final WebClientProperties properties;
 
     @Bean
     public WebClient webClient() {

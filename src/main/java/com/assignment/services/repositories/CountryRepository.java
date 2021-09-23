@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface CountryRepository {
     Mono<List<Country>> getAllCountries();
+
     Mono<Country> getCountry(String name);
 }
 

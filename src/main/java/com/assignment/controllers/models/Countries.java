@@ -11,5 +11,5 @@ import java.util.List;
 @AllArgsConstructor(staticName = "of")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Countries {
-    private List<Country> countries;
+    private final List<Country> countries;
 }

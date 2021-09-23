@@ -4,7 +4,10 @@ import com.assignment.exceptions.NotFoundCountryException;
 import com.assignment.exceptions.TechnicalException;
 import com.assignment.services.repositories.CountryRepository;
 import com.github.tomakehurst.wiremock.client.WireMock;
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,12 +27,20 @@ public class RestCountriesEuRepositoryTest {
 
     private static final int HTTP_OK = OK.value();
     private static final int HTTP_INTERNAL_SERVER_ERROR = INTERNAL_SERVER_ERROR.value();
+
     @Autowired
     private CountryRepository repository;
 
+    @Autowired
+    private CircuitBreakerRegistry circuitBreakerRegistry;
+
+    @AfterEach
+    public void tearDown() {
+        circuitBreakerRegistry.circuitBreaker("remote-broken").reset();
+    }
+
     @Test
     public void testGetAllCountries_whenValidResponseReceived_thenAllResponse() {
-
         WireMock.stubFor(WireMock.get("/all")
                 .willReturn(WireMock.aResponse()
                         .withStatus(HTTP_OK)
@@ -76,6 +87,25 @@ public class RestCountriesEuRepositoryTest {
     }
 
     @Test
+    public void testGetAllCountries_whenRemoteServerNotPerformed_thenCircuitBreakerOpenException() {
+        WireMock.stubFor(WireMock.get("/all")
+                .willReturn(WireMock.aResponse().withStatus(HTTP_INTERNAL_SERVER_ERROR)));
+
+        StepVerifier.create(repository.getAllCountries())
+                .expectError(TechnicalException.class)
+                .verify();
+
+        StepVerifier.create(repository.getAllCountries())
+                .expectError(TechnicalException.class)
+                .verify();
+
+        StepVerifier.create(repository.getAllCountries())
+                .expectError(CallNotPermittedException.class)
+                .verify();
+
+    }
+
+    @Test
     public void testGetAllCountries_whenEmptyResponseReceived_thenEmptyResponse() {
         // literally empty response
         WireMock.stubFor(WireMock.get("/all")
@@ -102,6 +132,25 @@ public class RestCountriesEuRepositoryTest {
 
         StepVerifier.create(repository.getCountry("Finland"))
                 .expectError(TechnicalException.class)
+                .verify();
+
+    }
+
+    @Test
+    public void testGetCountry_whenRemoteServerNotPerformed_thenCircuitBreakerOpenException() {
+        WireMock.stubFor(WireMock.get("/name/Finland")
+                .willReturn(WireMock.aResponse().withStatus(HTTP_INTERNAL_SERVER_ERROR)));
+
+        StepVerifier.create(repository.getCountry("Finland"))
+                .expectError(TechnicalException.class)
+                .verify();
+
+        StepVerifier.create(repository.getCountry("Finland"))
+                .expectError(TechnicalException.class)
+                .verify();
+
+        StepVerifier.create(repository.getCountry("Finland"))
+                .expectError(CallNotPermittedException.class)
                 .verify();
 
     }

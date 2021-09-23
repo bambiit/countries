@@ -1,5 +1,6 @@
 package com.assignment.exceptions;
 
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +12,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ApplicationExceptionHandler {
 
     @ExceptionHandler(NotFoundCountryException.class)
-    private ResponseEntity handleNotFoundCountryException() {
+    private ResponseEntity handleNotFoundCountryException(NotFoundCountryException exception) {
+        log.error("Country {} is not found", exception.getCountryName());
         return ResponseEntity.notFound().build();
     }
 
-    @ExceptionHandler(TechnicalException.class)
-    private ResponseEntity<ApplicationError> handleTechnicalException(TechnicalException exception) {
+    @ExceptionHandler(value = {TechnicalException.class, CallNotPermittedException.class})
+    private ResponseEntity<ApplicationError> handleTechnicalException(Exception exception) {
         log.error(exception.getMessage(), exception);
         return ResponseEntity.internalServerError()
                 .body(ApplicationError.builder()
@@ -24,4 +26,5 @@ public class ApplicationExceptionHandler {
                         .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .build());
     }
+
 }

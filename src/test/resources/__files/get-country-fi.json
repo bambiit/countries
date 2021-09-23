@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Fiji",
+    "topLevelDomain": [
+      ".fj"
+    ],
+    "alpha2Code": "FJ",
+    "alpha3Code": "FJI",
+    "callingCodes": [
+      "679"
+    ],
+    "capital": "Suva",
+    "altSpellings": [
+      "FJ",
+      "Viti",
+      "Republic of Fiji",
+      "Matanitu ko Viti",
+      "Fijī Gaṇarājya"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "population": 867000,
+    "latlng": [
+      -18.0,
+      175.0
+    ],
+    "demonym": "Fijian",
+    "area": 18272.0,
+    "gini": 42.8,
+    "timezones": [
+      "UTC+12:00"
+    ],
+    "borders": [],
+    "nativeName": "Fiji",
+    "numericCode": "242",
+    "currencies": [
+      {
+        "code": "FJD",
+        "name": "Fijian dollar",
+        "symbol": "$"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "en",
+        "iso639_2": "eng",
+        "name": "English",
+        "nativeName": "English"
+      },
+      {
+        "iso639_1": "fj",
+        "iso639_2": "fij",
+        "name": "Fijian",
+        "nativeName": "vosa Vakaviti"
+      },
+      {
+        "iso639_1": "hi",
+        "iso639_2": "hin",
+        "name": "Hindi",
+        "nativeName": "हिन्दी"
+      },
+      {
+        "iso639_1": "ur",
+        "iso639_2": "urd",
+        "name": "Urdu",
+        "nativeName": "اردو"
+      }
+    ],
+    "translations": {
+      "de": "Fidschi",
+      "es": "Fiyi",
+      "fr": "Fidji",
+      "ja": "フィジー",
+      "it": "Figi",
+      "br": "Fiji",
+      "pt": "Fiji",
+      "nl": "Fiji",
+      "hr": "Fiđi",
+      "fa": "فیجی"
+    },
+    "flag": "https://restcountries.eu/data/fji.svg",
+    "regionalBlocs": [],
+    "cioc": "FIJ"
+  },
+  {
+    "name": "Finland",
+    "topLevelDomain": [
+      ".fi"
+    ],
+    "alpha2Code": "FI",
+    "alpha3Code": "FIN",
+    "callingCodes": [
+      "358"
+    ],
+    "capital": "Helsinki",
+    "altSpellings": [
+      "FI",
+      "Suomi",
+      "Republic of Finland",
+      "Suomen tasavalta",
+      "Republiken Finland"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "population": 5491817,
+    "latlng": [
+      64.0,
+      26.0
+    ],
+    "demonym": "Finnish",
+    "area": 338424.0,
+    "gini": 26.9,
+    "timezones": [
+      "UTC+02:00"
+    ],
+    "borders": [
+      "NOR",
+      "SWE",
+      "RUS"
+    ],
+    "nativeName": "Suomi",
+    "numericCode": "246",
+    "currencies": [
+      {
+        "code": "EUR",
+        "name": "Euro",
+        "symbol": "€"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "fi",
+        "iso639_2": "fin",
+        "name": "Finnish",
+        "nativeName": "suomi"
+      },
+      {
+        "iso639_1": "sv",
+        "iso639_2": "swe",
+        "name": "Swedish",
+        "nativeName": "svenska"
+      }
+    ],
+    "translations": {
+      "de": "Finnland",
+      "es": "Finlandia",
+      "fr": "Finlande",
+      "ja": "フィンランド",
+      "it": "Finlandia",
+      "br": "Finlândia",
+      "pt": "Finlândia",
+      "nl": "Finland",
+      "hr": "Finska",
+      "fa": "فنلاند"
+    },
+    "flag": "https://restcountries.eu/data/fin.svg",
+    "regionalBlocs": [
+      {
+        "acronym": "EU",
+        "name": "European Union",
+        "otherAcronyms": [],
+        "otherNames": []
+      }
+    ],
+    "cioc": "FIN"
+  }
+]

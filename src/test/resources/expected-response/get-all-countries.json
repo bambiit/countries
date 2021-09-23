@@ -1,0 +1,18 @@
+{
+  "countries": [
+    {
+      "name": "Afghanistan",
+      "country_code": "AF",
+      "population": 27657145,
+      "capital": "Kabul",
+      "flag_file_url": "https://restcountries.eu/data/afg.svg"
+    },
+    {
+      "name": "Åland Islands",
+      "country_code": "AX",
+      "population": 28875,
+      "capital": "Mariehamn",
+      "flag_file_url": "https://restcountries.eu/data/ala.svg"
+    }
+  ]
+}

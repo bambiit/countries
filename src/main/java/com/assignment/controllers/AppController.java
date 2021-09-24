@@ -10,7 +10,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,10 +31,10 @@ public class AppController {
             @ApiResponse(responseCode = "200",
                     description = "A list of countries has been found",
                     content = {
-                        @Content(
-                                mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                schema = @Schema(implementation = Countries.class)
-                        )
+                            @Content(
+                                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = Countries.class)
+                            )
                     }
             ),
             @ApiResponse(responseCode = "500",

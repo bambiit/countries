@@ -4,16 +4,15 @@ import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class ApplicationExceptionHandler {
 
     @ExceptionHandler(NotFoundCountryException.class)
     private ResponseEntity handleNotFoundCountryException(NotFoundCountryException exception) {
-        log.error("Country {} is not found", exception.getCountryName());
+        log.error("Country {} has not been found", exception.getCountryName());
         return ResponseEntity.notFound().build();
     }
 

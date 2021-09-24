@@ -12,7 +12,7 @@
     <artifactId>countries</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>countries</name>
-    <description>Countries project for Spring Boot</description>
+    <description>Countries project</description>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -43,6 +43,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webflux-ui</artifactId>
+            <version>1.5.2</version>
         </dependency>
 
         <dependency>

@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @AllArgsConstructor
-public class AppService implements AppServiceContract {
+public class AppService implements AppServiceInputPort {
     private final CountryRepository repository;
 
     @Override

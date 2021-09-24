@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-public interface AppServiceContract {
+public interface AppServiceInputPort {
     Mono<List<Country>> getAllCountries();
 
     Mono<Country> getCountry(String name);
